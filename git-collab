@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Get options
+# Parse options
 while getopts ":m:a:" opt; do
   case $opt in
     m | a)
@@ -15,18 +15,19 @@ done
 
 shift $((OPTIND-1))
 
-# get authors
+# Get authors list
 IFS=',' read -a authors <<< "${option_a}"
 
-# add Co-authored-by at start of each author
+# Iterates over each author and prepend Co-authored-by text
 for author_index in "${!authors[@]}"
 do
 	authors[$author_index]="Co-authored-by: ${authors[author_index]}"
 done
 
-# make commit message
+# Make commit message
 commit_message=$(printf "%s\n\n\n%s\n" "Fix typo and refactor code" "${authors[@]}")
 
+# Run command
 git_output=`git commit -m "$commit_message"`
 
 echo "$git_output"
