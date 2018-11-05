@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Usage git cogit -m "asdasd" -a "Zeeshan Ahmad <ziishaned@gmail.com>,Kamran Ahmed <kamranahmed.se@gmail.com>"
-
 # Get options
 while getopts ":m:a:" opt; do
   case $opt in

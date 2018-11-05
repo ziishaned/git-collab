@@ -6,7 +6,7 @@ DATADIR ?= $(DATAROOTDIR)
 MANDIR ?= $(DATAROOTDIR)/man
 
 # files that need mode 755
-EXEC_FILES = git-cogit
+EXEC_FILES = git-collab
 
 .PHONY: all install uninstall
 

@@ -1,5 +1,5 @@
 {
-  "name": "git-cogit",
+  "name": "git-collab",
   "version": "0.0.1",
   "description": "Make co-authored commits on github.",
   "main": "",
@@ -7,22 +7,22 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "git-cogit": "./git-cogit"
+    "git-collab": "./git-collab"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ziishaned/git-cogit.git"
+    "url": "git+https://github.com/ziishaned/git-collab.git"
   },
   "keywords": [
     "git",
-    "git-cogit",
+    "git-collab",
     "co-authored",
     "git-co-authored"
   ],
   "author": "Zeeshan Ahmad",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ziishaned/git-cogit/issues"
+    "url": "https://github.com/ziishaned/git-collab/issues"
   },
-  "homepage": "https://github.com/ziishaned/git-cogit#readme"
+  "homepage": "https://github.com/ziishaned/git-collab#readme"
 }
