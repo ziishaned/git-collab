@@ -34,7 +34,7 @@ Here is the detail for each of the options
 | Option | Description |
 | --- | --- |
 | m | Specify the commit message |
-| a | String containing the list of authors |
+| a | List of the authors |
 | h | Display the help screen |
 
 For the basic usage, all you have to do is run `git collab` inside your terminal.

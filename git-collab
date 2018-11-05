@@ -1,19 +1,90 @@
 #!/usr/bin/env bash
 
+version="0.0.1"
+
+# Shows the usage
+function usage() {
+  cat << EOS
+  Usage: ${YELLOW}git collab${NORMAL} ${DarkGray}[options]${NORMAL}
+  Options:
+    ${YELLOW}-m${NORMAL}      ${DarkGray}Specify the commit message${NORMAL}
+    ${YELLOW}-a${NORMAL}      ${DarkGray}List of the authors${NORMAL}
+    ${YELLOW}-h${NORMAL}      ${DarkGray}Display help${NORMAL}
+    ${YELLOW}-v${NORMAL}      ${DarkGray}Display version${NORMAL}
+  Examples:
+    ${YELLOW}git collab${NORMAL} -m "Refactor code" -a "Zeeshan Ahmad <ziishaned@gmail.com>,John Doe <johndoe@gmail.com>"
+EOS
+}
+
+# Sets up the colored output
+function colored() {
+  RED=$(tput setaf 1)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+  BLUE=$(tput setaf 4)
+  DarkGray=$(tput setaf 8)
+  BOLD=$(tput bold)
+  UNDERLINE=$(tput smul)
+  NORMAL=$(tput sgr0)
+}
+
+# Sets up the uncolored output
+function uncolored() {
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+  DarkGray=""
+  BOLD=""
+  UNDERLINE=""
+  NORMAL=""
+}
+
+# Use colors, but only if connected to a terminal, and that terminal supports them.
+if [[ -t 1 ]] && [[ -n "$TERM" ]] && which tput &>/dev/null && tput colors &>/dev/null; then
+  ncolors=$(tput colors)
+  if [[ -n "$ncolors" ]] && [[ "$ncolors" -ge 8 ]] ; then
+    colored
+  else
+    uncolored
+  fi
+else
+  uncolored
+fi
+
+# Main script
+if [[ $# -eq 0 ]]; then
+  usage
+  exit 0
+fi
+
 # Parse options
 while getopts ":m:a:" opt; do
   case $opt in
     m | a)
         declare "option_${opt}=${OPTARG:-0}"
-      ;;
+    ;;
     \?)
-      echo >&2 "Please provide valid flags."
+      echo >&2 "Use 'git collab -h' to see usage info"
       exit 1
-      ;;
+    ;;
   esac
 done
 
 shift $((OPTIND-1))
+
+# If number of arguments is 0 then exit
+if [[ $# -gt 0 ]]; then
+  echo >&2 "Invalid arguments: $@"
+  echo >&2 "Use 'git collab -h' to see usage info"
+  exit 1
+fi
+
+# Show version of the script
+if [[ ${option_v} ]]; then
+  echo "git collab version ${version}"
+  exit 0
+fi
 
 # Get authors list
 IFS=',' read -a authors <<< "${option_a}"
