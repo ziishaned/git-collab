@@ -99,7 +99,7 @@ do
 done
 
 # Make commit message
-commit_message=$(printf "%s\n\n\n%s\n" "Fix typo and refactor code" "${authors[@]}")
+commit_message=$(printf "%s\n\n\n%s\n" "${option_m}" "${authors[@]}")
 
 # Run command
 git_output=`git commit -m "$commit_message"`
