@@ -1,0 +1,28 @@
+{
+  "name": "git-cogit",
+  "version": "0.0.1",
+  "description": "Make co-authored commits on github.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "git-cogit": "./git-cogit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziishaned/git-cogit.git"
+  },
+  "keywords": [
+    "git",
+    "git-cogit",
+    "co-authored",
+    "git-co-authored"
+  ],
+  "author": "Zeeshan Ahmad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ziishaned/git-cogit/issues"
+  },
+  "homepage": "https://github.com/ziishaned/git-cogit#readme"
+}
