@@ -5,14 +5,17 @@ version="0.0.1"
 # Shows the usage
 function usage() {
   cat << EOS
-  Usage: ${YELLOW}git collab${NORMAL} ${DarkGray}[options]${NORMAL}
-  Options:
-    ${YELLOW}-m${NORMAL}      ${DarkGray}Specify the commit message${NORMAL}
-    ${YELLOW}-a${NORMAL}      ${DarkGray}List of the authors${NORMAL}
-    ${YELLOW}-h${NORMAL}      ${DarkGray}Display help${NORMAL}
-    ${YELLOW}-v${NORMAL}      ${DarkGray}Display version${NORMAL}
-  Examples:
-    ${YELLOW}git collab${NORMAL} -m "Refactor code" -a "Zeeshan Ahmad <ziishaned@gmail.com>,John Doe <johndoe@gmail.com>"
+${YELLOW}Usage:${NORMAL}
+  ${GREEN}git collab${NORMAL} [options]${NORMAL}
+
+${YELLOW}Options:${NORMAL}
+  ${GREEN}-m${NORMAL}      Specify the commit message${NORMAL}
+  ${GREEN}-a${NORMAL}      List of the authors${NORMAL}
+  ${GREEN}-h${NORMAL}      Display help${NORMAL}
+  ${GREEN}-v${NORMAL}      Display version${NORMAL}
+
+${YELLOW}Examples:${NORMAL}
+  git collab -m "Refactor code" -a "Zeeshan Ahmad <ziishaned@gmail.com>,John Doe <johndoe@gmail.com>"
 EOS
 }
 
